@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 class ButtonsContainerNotifier extends ValueNotifier<ButtonsState> {
   ButtonsContainerNotifier() : super(ButtonsState.initial);
+}
 
-  changeValueToFinished() {
-    print('finished');
-    value = ButtonsState.finished;
-  }
+enum ButtonsState {
+  initial,
+  started,
+  paused,
+  finished,
 }
