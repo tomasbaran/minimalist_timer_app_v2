@@ -3,15 +3,6 @@ import 'package:exp0_min_state_management_timer/widgets/buttons_container/button
 class ButtonsContainerManager {
   // final buttonsContainerNotifier = ValueNotifier<ButtonsState>(ButtonsState.initial);
   final buttonsContainerNotifier = ButtonsContainerNotifier();
-
-  changeValueToFinished() {
-    buttonsContainerNotifier.changeValueToFinished();
-  }
-
-  changeValueToStarted() {
-    print('started');
-    buttonsContainerNotifier.value = ButtonsState.started;
-  }
 }
 
 enum ButtonsState {

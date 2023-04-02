@@ -7,6 +7,6 @@ class TimerContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Timer');
+    return Text('00:10');
   }
 }

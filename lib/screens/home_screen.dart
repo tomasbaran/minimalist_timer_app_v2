@@ -20,8 +20,9 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: const [
             TimerContainer(),
+            SizedBox(height: 16),
             ButtonsContainer(),
           ],
         ),

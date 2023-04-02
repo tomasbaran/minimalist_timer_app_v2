@@ -15,14 +15,6 @@ class ButtonsContainer extends StatelessWidget {
       builder: ((context, value, _child) => Column(
             children: [
               Text(value.name),
-              ElevatedButton(
-                onPressed: widgetManager.changeValueToFinished,
-                child: Text('change value to finished'),
-              ),
-              ElevatedButton(
-                onPressed: widgetManager.changeValueToStarted,
-                child: Text('change value to started'),
-              ),
             ],
           )),
     );
