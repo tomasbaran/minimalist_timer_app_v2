@@ -11,26 +11,31 @@ class TimerContainerManager {
   final timeLeftNotifier = ValueNotifier<String>(defaultTimeString);
 
   Timer? _timer;
-  int timeLeft = defaultTime.inSeconds;
+  int timerSecondsLeft = defaultTime.inSeconds;
 
-  updateTimeLeftValue(int timeLeft) {
+  updateNotifier(int timeLeft) {
     timeLeftNotifier.value = '00:0' + timeLeft.toString();
   }
 
-  pauseCountDown() {
+  pauseTimer() {
     _timer?.cancel();
   }
 
-  countDown() {
+  countDownTimer() {
     _timer = Timer.periodic(oneSec, (timer) {
-      updateTimeLeftValue(--timeLeft);
+      updateNotifier(--timerSecondsLeft);
 
-      if (timeLeft == 0) {
-        log('finished');
+      if (timerSecondsLeft == 0) {
         _timer?.cancel();
-        final buttonsManager = getIt<ButtonsContainerManager>();
-        buttonsManager.buttonsStateNotifier.value = ButtonsState.finished;
+        final buttonsContainerManager = getIt<ButtonsContainerManager>();
+        buttonsContainerManager.buttonsStateNotifier.value = ButtonsState.finished;
       }
     });
+  }
+
+  resetTimer() {
+    _timer?.cancel();
+    timerSecondsLeft = defaultTime.inSeconds;
+    updateNotifier(timerSecondsLeft);
   }
 }

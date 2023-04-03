@@ -9,15 +9,16 @@ class ButtonsContainerManager {
 
   play() {
     buttonsStateNotifier.value = ButtonsState.started;
-    timerManager.countDown();
+    timerManager.countDownTimer();
   }
 
   pause() {
     buttonsStateNotifier.value = ButtonsState.paused;
-    timerManager.pauseCountDown();
+    timerManager.pauseTimer();
   }
 
   reset() {
     buttonsStateNotifier.value = ButtonsState.initial;
+    timerManager.resetTimer();
   }
 }
