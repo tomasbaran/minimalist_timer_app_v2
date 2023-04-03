@@ -14,7 +14,7 @@ class PlayButton extends StatelessWidget {
         final widgetManager = getIt<ButtonsContainerManager>();
         widgetManager.play();
       },
-      child: Icon(Icons.play_arrow),
+      child: const Icon(Icons.play_arrow),
     );
   }
 }

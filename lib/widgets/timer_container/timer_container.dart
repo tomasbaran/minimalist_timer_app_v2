@@ -1,3 +1,5 @@
+import 'package:exp0_min_state_management_timer/services/service_locator.dart';
+import 'package:exp0_min_state_management_timer/widgets/timer_container/timer_container_manager.dart';
 import 'package:flutter/material.dart';
 
 class TimerContainer extends StatelessWidget {
@@ -7,6 +9,14 @@ class TimerContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('00:10');
+    final widgetManager = getIt<TimerContainerManager>();
+    return ValueListenableBuilder<String>(
+        valueListenable: widgetManager.timeLeftNotifier,
+        builder: (context, timeLeft, child) {
+          return Text(
+            timeLeft,
+            style: const TextStyle(fontSize: 28),
+          );
+        });
   }
 }

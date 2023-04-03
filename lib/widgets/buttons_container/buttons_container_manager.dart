@@ -1,18 +1,23 @@
+import 'package:exp0_min_state_management_timer/services/service_locator.dart';
 import 'package:exp0_min_state_management_timer/widgets/buttons_container/buttons_container_notifier.dart';
+import 'package:exp0_min_state_management_timer/widgets/timer_container/timer_container_manager.dart';
 
 class ButtonsContainerManager {
   // final buttonsContainerNotifier = ValueNotifier<ButtonsState>(ButtonsState.initial);
-  final buttonsContainerNotifier = ButtonsContainerNotifier();
+  final buttonsStateNotifier = ButtonsContainerNotifier();
+  final timerManager = getIt<TimerContainerManager>();
 
   play() {
-    buttonsContainerNotifier.value = ButtonsState.started;
+    buttonsStateNotifier.value = ButtonsState.started;
+    timerManager.countDown();
   }
 
   pause() {
-    buttonsContainerNotifier.value = ButtonsState.paused;
+    buttonsStateNotifier.value = ButtonsState.paused;
+    timerManager.pauseCountDown();
   }
 
   reset() {
-    buttonsContainerNotifier.value = ButtonsState.initial;
+    buttonsStateNotifier.value = ButtonsState.initial;
   }
 }
