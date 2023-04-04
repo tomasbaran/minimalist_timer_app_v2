@@ -1,4 +1,4 @@
-import 'package:exp0_min_state_management_timer/screens/home_screen.dart';
+import 'package:exp0_min_state_management_timer/screens/timer_screen/timer_screen.dart';
 import 'package:exp0_min_state_management_timer/services/service_locator.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: TimerScreen(),
     );
   }
 }

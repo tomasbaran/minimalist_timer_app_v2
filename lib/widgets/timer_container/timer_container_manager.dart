@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:exp0_min_state_management_timer/constants.dart';
+import 'package:exp0_min_state_management_timer/services/storage_service.dart';
 import 'package:exp0_min_state_management_timer/services/service_locator.dart';
 import 'package:exp0_min_state_management_timer/widgets/buttons_container/buttons_container_manager.dart';
 import 'package:exp0_min_state_management_timer/widgets/buttons_container/buttons_container_notifier.dart';
@@ -15,6 +16,7 @@ class TimerContainerManager {
 
   updateNotifier(int timeLeft) {
     timerNotifier.value = '00:' + timeLeft.toString().padLeft(2, '0');
+    StorageService().saveTimer(timeLeft);
   }
 
   pauseTimer() {
