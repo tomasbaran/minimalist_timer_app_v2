@@ -14,7 +14,7 @@ class TimerContainerManager {
   int timerSecondsLeft = defaultTime.inSeconds;
 
   updateNotifier(int timeLeft) {
-    timerNotifier.value = '00:0' + timeLeft.toString();
+    timerNotifier.value = '00:' + timeLeft.toString().padLeft(2, '0');
   }
 
   pauseTimer() {
