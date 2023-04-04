@@ -1,6 +1,7 @@
 # Version 2
 
-![v 2b](https://user-images.githubusercontent.com/25743901/229940860-7ab0f562-bb53-40ff-be68-445be46f7247.png)
+
+![v 2b](https://user-images.githubusercontent.com/25743901/229941347-69603967-8b06-4b94-b44c-60aaef2ebd1f.png)
 
 
 
