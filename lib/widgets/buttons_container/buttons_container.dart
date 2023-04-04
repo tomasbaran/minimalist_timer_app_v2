@@ -15,7 +15,7 @@ class ButtonsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final widgetManager = getIt<ButtonsContainerManager>();
     return ValueListenableBuilder(
-      valueListenable: widgetManager.buttonsStateNotifier,
+      valueListenable: widgetManager.buttonsNotifier,
       builder: ((context, buttonsState, child) => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

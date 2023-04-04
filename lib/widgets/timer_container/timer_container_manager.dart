@@ -8,33 +8,33 @@ import 'package:exp0_min_state_management_timer/widgets/buttons_container/button
 import 'package:flutter/material.dart';
 
 class TimerContainerManager {
-  final timeLeftNotifier = ValueNotifier<String>(defaultTimeString);
+  final timerNotifier = ValueNotifier<String>(defaultTimeString);
 
-  Timer? _timer;
+  Timer? _timerTicker;
   int timerSecondsLeft = defaultTime.inSeconds;
 
   updateNotifier(int timeLeft) {
-    timeLeftNotifier.value = '00:0' + timeLeft.toString();
+    timerNotifier.value = '00:0' + timeLeft.toString();
   }
 
   pauseTimer() {
-    _timer?.cancel();
+    _timerTicker?.cancel();
   }
 
   countDownTimer() {
-    _timer = Timer.periodic(oneSec, (timer) {
+    _timerTicker = Timer.periodic(oneSec, (timer) {
       updateNotifier(--timerSecondsLeft);
 
       if (timerSecondsLeft == 0) {
-        _timer?.cancel();
+        _timerTicker?.cancel();
         final buttonsContainerManager = getIt<ButtonsContainerManager>();
-        buttonsContainerManager.buttonsStateNotifier.value = ButtonsState.finished;
+        buttonsContainerManager.finish();
       }
     });
   }
 
   resetTimer() {
-    _timer?.cancel();
+    _timerTicker?.cancel();
     timerSecondsLeft = defaultTime.inSeconds;
     updateNotifier(timerSecondsLeft);
   }

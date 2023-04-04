@@ -4,21 +4,25 @@ import 'package:exp0_min_state_management_timer/widgets/timer_container/timer_co
 
 class ButtonsContainerManager {
   // final buttonsContainerNotifier = ValueNotifier<ButtonsState>(ButtonsState.initial);
-  final buttonsStateNotifier = ButtonsContainerNotifier();
+  final buttonsNotifier = ButtonsContainerNotifier();
   final timerManager = getIt<TimerContainerManager>();
 
   play() {
-    buttonsStateNotifier.value = ButtonsState.started;
+    buttonsNotifier.value = ButtonsState.started;
     timerManager.countDownTimer();
   }
 
   pause() {
-    buttonsStateNotifier.value = ButtonsState.paused;
+    buttonsNotifier.value = ButtonsState.paused;
     timerManager.pauseTimer();
   }
 
   reset() {
-    buttonsStateNotifier.value = ButtonsState.initial;
+    buttonsNotifier.value = ButtonsState.initial;
     timerManager.resetTimer();
+  }
+
+  finish() {
+    buttonsNotifier.value = ButtonsState.finished;
   }
 }

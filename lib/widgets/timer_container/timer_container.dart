@@ -11,7 +11,7 @@ class TimerContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final widgetManager = getIt<TimerContainerManager>();
     return ValueListenableBuilder<String>(
-        valueListenable: widgetManager.timeLeftNotifier,
+        valueListenable: widgetManager.timerNotifier,
         builder: (context, timeLeft, child) {
           return Text(
             timeLeft,
